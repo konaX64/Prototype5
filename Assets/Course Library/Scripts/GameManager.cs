@@ -1,38 +1,44 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> targets;
-    private float spawnRate = 1.0f;
-    private int score;
+    public List<GameObject> targets;    
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
-    public bool isGameActive;
     public Button restartButton;
+    public bool isGameActive;
+    private int score;
+    float spawnRate = 1.0f;
+    public GameObject titleScreen;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        StartCoroutine(SpawnTarget());
-        score = 0;
-        UpdateScore(0);
-        isGameActive = true;
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
 
+    public void StartGame(int difficulty)
+    {
+        isGameActive = true;
+        score = 0;
+        StartCoroutine(SpawnTarget());
+        UpdateScore(0);
+        titleScreen.gameObject.SetActive(false);
+        spawnRate /= difficulty;
+    }
+
+    void Update()
+    {
+
+    }
+
     IEnumerator SpawnTarget()
     {
-        while(isGameActive)
+        while (isGameActive)
         {
             yield return new WaitForSeconds(spawnRate);
             int index = Random.Range(0, targets.Count);
@@ -48,9 +54,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        restartButton.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(true);
         isGameActive = false;
-        restartButton.gameObject.SetActive(true);
     }
 
     public void RestartGame()
