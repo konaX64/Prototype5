@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45a5d2970ed64c44a7cdfe6d037340d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
-  difficulty: 0
+  difficulty: 2
 --- !u!114 &32732902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45a5d2970ed64c44a7cdfe6d037340d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
-  difficulty: 0
+  difficulty: 3
 --- !u!114 &1033163311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1653,7 +1653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45a5d2970ed64c44a7cdfe6d037340d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
-  difficulty: 0
+  difficulty: 1
 --- !u!114 &1232091576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,8 +2126,8 @@ MonoBehaviour:
   scoreText: {fileID: 954752570}
   gameOverText: {fileID: 1459765437}
   restartButton: {fileID: 1056136585}
-  isGameActive: 1
   titleScreen: {fileID: 53905542}
+  isGameActive: 1
 --- !u!4 &1523973459
 Transform:
   m_ObjectHideFlags: 0

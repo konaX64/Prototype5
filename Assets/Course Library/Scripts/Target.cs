@@ -8,8 +8,8 @@ public class Target : MonoBehaviour
     Rigidbody targetRb;
     GameManager gameManager;
 
-    float minSpeed = 14;
-    float maxSpeed = 18;
+    float minSpeed = 12;
+    float maxSpeed = 16;
     float maxTorque = 10;
     float xRange = 4;
     float ySpawnPos = -6;
@@ -32,26 +32,6 @@ public class Target : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnMouseDown()
-    {
-        if (gameManager.isGameActive)
-        {
-            Destroy(gameObject);
-            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-            gameManager.UpdateScore(pointValue);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(gameObject);
-
-        if (!gameObject.CompareTag("Bad"))
-        {
-            gameManager.GameOver();
-        }
     }
 
     public void DestroyTarget()
@@ -77,5 +57,26 @@ public class Target : MonoBehaviour
     Vector3 RandomSpawnPos()
     {
         return new Vector3(Random.Range(-xRange, xRange), ySpawnPos, 0);
+    }
+
+
+    private void OnMouseDown()
+    {
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            gameManager.UpdateScore(pointValue);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+
+        if (!gameObject.CompareTag("Bad"))
+        {
+            gameManager.GameOver();
+        }
     }
 }
